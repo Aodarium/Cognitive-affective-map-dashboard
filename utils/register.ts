@@ -2,26 +2,24 @@ import getConfig from "next/config";
 
 const { publicRuntimeConfig } = getConfig();
 
-
 export const registerUser = async (event) => {
     const body = {
         email: event.email,
-        password: event.password
+        password: event.password,
     };
 
     const res = await fetch(
-        publicRuntimeConfig.DEV_URL + '/researchers/login',
+        publicRuntimeConfig.DEV_URL + "/researchers/login",
         {
             body: JSON.stringify(body),
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json",
             },
-            method: 'POST'
+            method: "POST",
         }
-    )
+    );
 
     const result = await res.json();
-
 };
 
 // //write end to end tests for the functino above
