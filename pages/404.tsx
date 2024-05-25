@@ -1,5 +1,5 @@
 import { NotFound } from '@/components/NotFound/NotFound';
 
-export function NotFoundTitle() {
+export default function NotFoundTitle() {
   return <NotFound />;
 }

@@ -5,12 +5,12 @@ export function getStatusColor(status: string): string {
     ARCHIVED: 'yellow',
     INACTIVE: 'red',
   };
-  return mapColor[status];
+  // @ts-ignore
+  return mapColor[status] as string;
 }
 
 export function copyToClipboard(experimentId: string, link: string) {
   const url =
-    'SOURCE-URL' + link + 'participants/getOneExperiment?id=' + experimentId + '&participantID=';
-  console.log(url);
+    `SOURCE-URL${link}participants/getOneExperiment?id=${experimentId}&participantID=`;
   navigator.clipboard.writeText(url);
 }
