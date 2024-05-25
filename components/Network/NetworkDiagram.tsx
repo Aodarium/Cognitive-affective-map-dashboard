@@ -27,8 +27,8 @@ export const NetworkDiagram = ({ width, height, rawData }: NetworkDiagramProps) 
   // The force simulation mutates links and nodes, so create a copy first
   // Node positions are initialized by d3
   const data = convert(rawData);
-  const links: Link[] = data.links.map((d) => ({ ...d }));
-  const nodes: Node[] = data.nodes.map((d) => ({ ...d }));
+  const links: Link[] = data.links.map((d: any) => ({ ...d }));
+  const nodes: Node[] = data.nodes.map((d: any) => ({ ...d }));
 
   //const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasRef = useRef(null);
@@ -37,7 +37,7 @@ export const NetworkDiagram = ({ width, height, rawData }: NetworkDiagramProps) 
   }
   useEffect(() => {
     // set dimension of the canvas element
-    let svg = d3.select(canvasRef.current);
+    const svg = d3.select(canvasRef.current);
     const simulation = d3
       .forceSimulation()
       .force('charge', d3.forceManyBody().strength(-10))
@@ -78,8 +78,8 @@ export const NetworkDiagram = ({ width, height, rawData }: NetworkDiagramProps) 
       'link',
       d3
         .forceLink()
-        .id((link) => link.id)
-        .strength((link) => link.value)
+        .id((link) => link?.id)
+        .strength((link) => link?.value)
     );
     simulation.nodes(nodes).on('tick', () => {
       linkElements
@@ -92,7 +92,7 @@ export const NetworkDiagram = ({ width, height, rawData }: NetworkDiagramProps) 
       textElements.attr('x', (node) => node.x).attr('y', (node) => node.y);
     });
 
-    simulation.force('link').links(links);
+    simulation?.force('link')?.links(links);
   }, [width, height, nodes, links]);
 
   return (
