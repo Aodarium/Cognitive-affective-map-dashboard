@@ -1,8 +1,5 @@
-import { StatsGridIcons } from '@/components/StatExperiment/StatExperiment';
-import { HeaderSimple } from '../../components/Header/Header';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import { TableParticipants } from '@/components/ParticipantList/ParticipantList';
 import { useSearchParams } from 'next/navigation';
 import {
   Badge,
@@ -14,11 +11,14 @@ import {
   Space,
   rem,
 } from '@mantine/core';
-import StatusModal from '@/components/StatusModal/StatusModal';
 import Router from 'next/router';
+import { IconCheck } from '@tabler/icons-react';
+import { StatsGridIcons } from '@/components/StatExperiment/StatExperiment';
+import { HeaderSimple } from '@/components/Header/Header';
+import { TableParticipants } from '@/components/ParticipantList/ParticipantList';
+import StatusModal from '@/components/StatusModal/StatusModal';
 import { getStatusColor } from '@/utils/generals';
 import { Experiment } from '@/utils/types';
-import { IconCheck } from '@tabler/icons-react';
 
 export default function HomePage() {
   const [cookies, setCookies] = useCookies(['CAM-API-KEY']);
@@ -35,13 +35,13 @@ export default function HomePage() {
 
   useEffect(() => {
     let id = searchParams.get('id') || '';
-    if (id != '') {
+    if (id !== '') {
       window.localStorage.setItem('id', id);
     } else {
       id = window.localStorage.getItem('id') || '';
     }
     setIdExperiment(id);
-    const url = 'http://localhost:3001' + '/researchers/getExperimentById?id=' + id;
+    const url = 'http://localhost:3001' + `/researchers/getExperimentById?id=${id}`;
 
     setIsLoading(true);
     fetch(url, {
@@ -49,7 +49,7 @@ export default function HomePage() {
     })
       .then(async (res) => {
         const data = await res.json();
-        if (res.status != 200) {
+        if (res.status !== 200) {
           setErrorMessage(data.message);
           throw new Error(errorMessage);
         }
@@ -72,7 +72,7 @@ export default function HomePage() {
   }
   async function updateExperimentStatus(id: string, status: string) {
     fetch('http://localhost:3001' + '/researchers/changeExperimentStatus', {
-      body: JSON.stringify({ id: id, status: status }),
+      body: JSON.stringify({ id, status }),
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       method: 'PUT',
@@ -94,7 +94,7 @@ export default function HomePage() {
     const anchor = document.createElement('a');
     anchor.href = blobUrl;
     anchor.target = '_blank';
-    anchor.download = id + '.json';
+    anchor.download = `${id}.json`;
     anchor.click();
 
     URL.revokeObjectURL(blobUrl);
@@ -102,7 +102,7 @@ export default function HomePage() {
 
   async function deleteExperiment(id: string) {
     fetch('http://localhost:3001' + '/researchers/deleteExperiment', {
-      body: JSON.stringify({ id: id }),
+      body: JSON.stringify({ id }),
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       method: 'DELETE',
@@ -129,7 +129,7 @@ export default function HomePage() {
 
   return (
     <>
-      <HeaderSimple activeLink="/login" loggedIn={true} />
+      <HeaderSimple activeLink="/login" loggedIn />
       {isDeleted && (
         <Container
           style={{

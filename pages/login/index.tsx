@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useCookies } from 'react-cookie';
 import { AuthenticationTitle } from '@/components/LoginWindow/Authentication';
-import { HeaderSimple } from '../../components/Header/Header';
+import { HeaderSimple } from '@/components/Header/Header';
 
 export default function HomePage() {
   async function submitForm(data: any) {
