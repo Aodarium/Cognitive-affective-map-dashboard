@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { AuthenticationTitle } from '@/components/LoginWindow/Authentication';
-import { HeaderSimple } from '../../components/Header/Header';
 import { useRouter } from 'next/router';
 import { useCookies } from 'react-cookie';
+import { AuthenticationTitle } from '@/components/LoginWindow/Authentication';
+import { HeaderSimple } from '../../components/Header/Header';
 
 export default function HomePage() {
   async function submitForm(data: any) {

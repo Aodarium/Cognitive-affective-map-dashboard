@@ -3,12 +3,12 @@ import { Modal, Button } from '@mantine/core';
 
 export default function StatusModal({ id, getDataEvent }: any) {
   const [opened, { open, close }] = useDisclosure(false);
-  function getData(id: string, status: string) {
-    getDataEvent(id, status);
+  function getData(idElt: string, status: string) {
+    getDataEvent(idElt, status);
   }
   return (
     <>
-      <Modal opened={opened} onClose={close} title="Authentication">
+      <Modal opened={opened} onClose={close} title="Change experiment status">
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Button
             type="submit"

@@ -1,9 +1,10 @@
+/* eslint-disable arrow-body-style */
 import { Table, Text, Group, Container, Button, Modal, Checkbox } from '@mantine/core';
 import { BsDoorOpen } from 'react-icons/bs';
-import classes from './ParticipantList.module.css';
 import { useDisclosure } from '@mantine/hooks';
-import { NetworkDiagram } from '../Network/NetworkDiagram';
 import { useState } from 'react';
+import classes from './ParticipantList.module.css';
+import { NetworkDiagram } from '../Network/NetworkDiagram';
 
 export function TableParticipants({ daughters, callback }: any) {
   function getData(includedData: Set<string>) {

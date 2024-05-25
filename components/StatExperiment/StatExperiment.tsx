@@ -4,8 +4,8 @@ import classes from './StatExperiment.module.css';
 import { Daughter } from '@/utils/types';
 
 export function StatsGridIcons({ daughters }: any) {
-  let arrayValuesNodes: number[] = [];
-  let arrayDatesCAMs: string[] = [];
+  const arrayValuesNodes: number[] = [];
+  const arrayDatesCAMs: string[] = [];
 
   daughters.forEach((daughter: Daughter) => {
     const currentCam = daughter.cam;

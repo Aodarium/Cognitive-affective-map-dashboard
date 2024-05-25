@@ -3,3 +3,7 @@
       border-left: rem(3px) solid light-dark(var(--mantine-color-white), var(--mantine-color-dark-7));
     }
   }
+
+.networkModal {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

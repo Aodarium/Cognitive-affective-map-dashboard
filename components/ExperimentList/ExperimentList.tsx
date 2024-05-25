@@ -10,11 +10,11 @@ import {
   ScrollArea,
 } from '@mantine/core';
 import { BsClipboardData, BsDoorOpen } from 'react-icons/bs';
-import classes from './ExperimentList.module.css';
 import Link from 'next/link';
-import { copyToClipboard, getStatusColor } from '@/utils/generals';
 import { useState } from 'react';
 import cx from 'clsx';
+import { copyToClipboard, getStatusColor } from '@/utils/generals';
+import classes from './ExperimentList.module.css';
 
 export function TableReviews({ data }: any) {
   const [scrolled, setScrolled] = useState(false);
@@ -75,7 +75,7 @@ export function TableReviews({ data }: any) {
         <Table.Td>
           <Group justify="space-between">
             <Text fz="xs" c="teal" fw={700}>
-              <Link href={'/experiment?id=' + row._id} passHref>
+              <Link href={`/experiment?id=${row._id}`} passHref>
                 <Button leftSection={<BsDoorOpen />} variant="subtle" className={classes.button}>
                   Enter experiment
                 </Button>

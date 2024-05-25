@@ -1,8 +1,8 @@
-import { HeaderSimple } from '@/components/Header/Header';
 import { useRouter } from 'next/router';
 import { Blockquote, Container } from '@mantine/core';
-import { NewExpForm } from '@/components/NewExpForm/NewExpForm';
 import { useState } from 'react';
+import { NewExpForm } from '@/components/NewExpForm/NewExpForm';
+import { HeaderSimple } from '@/components/Header/Header';
 
 function validateConfiguration(file: string) {
   return true;
@@ -38,7 +38,7 @@ export default function HomePage() {
         return res.json();
       })
       .then((data) => {
-        if (errorStatus != 201) {
+        if (errorStatus !== 201) {
           setIsError(true);
           setError(data.message);
           setColour('red');
@@ -48,13 +48,13 @@ export default function HomePage() {
         setColour('green');
         setTimeout(() => router.push('/experiments'), 2000);
       })
-      .catch((err) => {
+      .catch(() => {
         setIsError(true);
       });
   }
   return (
     <>
-      <HeaderSimple activeLink="/experiments" loggedIn={true} />
+      <HeaderSimple activeLink="/experiments" loggedIn />
       <NewExpForm submitFormEvent={submitForm} />
       {isError && (
         <Container size={420}>

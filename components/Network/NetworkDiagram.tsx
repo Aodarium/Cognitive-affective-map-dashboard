@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 import { Link, Node } from './types';
@@ -95,7 +96,7 @@ export const NetworkDiagram = ({ width, height, rawData }: NetworkDiagramProps) 
   }, [width, height, nodes, links]);
 
   return (
-    <div>
+    <div style={{ boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px' }}>
       <svg
         ref={canvasRef}
         style={{

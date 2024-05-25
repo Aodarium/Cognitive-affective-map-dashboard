@@ -13,9 +13,7 @@ import classes from './NewExpForm.module.css';
 
 export function NewExpForm({ isLoading, isError, submitFormEvent }: any) {
   function submitForm(formData: any) {
-    console.log(formData);
-
-    let configuration: File = formData.configuration;
+    const { configuration } = formData;
     const reader = new FileReader();
     reader.onload = async (e: any) => {
       const text = e.target.result;
