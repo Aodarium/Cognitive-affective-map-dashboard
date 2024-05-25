@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Container, Group, Burger, Image } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { BsClipboardData } from 'react-icons/bs';
 import classes from './Header.module.css';
 
 const links = {

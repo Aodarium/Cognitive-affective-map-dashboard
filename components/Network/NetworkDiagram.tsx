@@ -77,8 +77,8 @@ export const NetworkDiagram = ({ width, height, rawData }: NetworkDiagramProps) 
     simulation.force(
       'link',
       d3
-        .forceLink()
-        .id((link) => link?.id)
+        .forceLink()// @ts-ignore
+        .id((link) => link?.id) // @ts-ignore
         .strength((link) => link?.value)
     );
     simulation.nodes(nodes).on('tick', () => {
@@ -91,7 +91,7 @@ export const NetworkDiagram = ({ width, height, rawData }: NetworkDiagramProps) 
       nodeElements.attr('cx', (node) => node.x).attr('cy', (node) => node.y);
       textElements.attr('x', (node) => node.x).attr('y', (node) => node.y);
     });
-
+// @ts-ignore
     simulation?.force('link')?.links(links);
   }, [width, height, nodes, links]);
 
