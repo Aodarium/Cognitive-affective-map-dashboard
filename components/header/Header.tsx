@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Group, Burger } from '@mantine/core';
+import { Container, Group, Burger, Image } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { BsClipboardData } from 'react-icons/bs';
 import classes from './Header.module.css';
@@ -39,7 +39,8 @@ export function HeaderSimple({ activeLink, loggedIn }: any) {
   return (
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
-        <BsClipboardData size={28} />
+        <Image src="./logo.svg" h={50} w="auto" fit="contain" />
+
         <Group gap={5} visibleFrom="xs">
           {items}
         </Group>
