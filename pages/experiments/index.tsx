@@ -9,18 +9,18 @@ export default function HomePage() {
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState(null);
 
-  const url = 'http://localhost:3001' + '/researchers/getExperimentByAuthor';
+  const url = `${process.env.URL_HOST}/researchers/getExperimentByAuthor`;
   useEffect(() => {
     setIsLoading(true);
     fetch(url, {
       credentials: 'include',
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then((responseData) => {
         setIsLoading(false);
-        setData(data);
+        setData(responseData);
       })
-      .catch((err) => {
+      .catch(() => {
         setIsLoading(false);
         setIsError(true);
       });

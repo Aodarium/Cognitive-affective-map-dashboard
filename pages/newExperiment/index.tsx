@@ -5,6 +5,7 @@ import { NewExpForm } from '@/components/NewExpForm/NewExpForm';
 import { Header } from '@/components/HeaderTab/Header';
 
 function validateConfiguration(file: string) {
+  file;
   return true;
 }
 
@@ -25,7 +26,7 @@ export default function HomePage() {
 
     setIsError(!validateConfiguration(data));
 
-    const url = 'http://localhost:3001' + '/researchers/addExperiment';
+    const url = `${process.env.URL_HOST}/researchers/addExperiment`;
 
     fetch(url, {
       body: JSON.stringify(body),
@@ -37,10 +38,10 @@ export default function HomePage() {
         setErrorStatus(res.status);
         return res.json();
       })
-      .then((data) => {
+      .then((responseData) => {
         if (errorStatus !== 201) {
           setIsError(true);
-          setError(data.message);
+          setError(responseData.message);
           setColour('red');
           return;
         }

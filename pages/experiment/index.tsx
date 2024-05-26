@@ -17,6 +17,7 @@ import { TableParticipants } from '@/components/ParticipantList/ParticipantList'
 import StatusModal from '@/components/StatusModal/StatusModal';
 import { getStatusColor } from '@/utils/generals';
 import { Experiment } from '@/utils/types';
+import { Header } from '@/components/HeaderTab/Header';
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -38,7 +39,7 @@ export default function HomePage() {
       id = window.localStorage.getItem('id') || '';
     }
     setIdExperiment(id);
-    const url = 'http://localhost:3001' + `/researchers/getExperimentById?id=${id}`;
+    const url = `${process.env.URL_HOST}/researchers/getExperimentById?id=${id}`;
 
     setIsLoading(true);
     fetch(url, {
@@ -63,11 +64,11 @@ export default function HomePage() {
       });
   }, []);
 
-  function getIncludedData(includedData: Set<string>) {
-    setIncludedData(includedData);
+  function getIncludedData(includedParticipants: Set<string>) {
+    setIncludedData(includedParticipants);
   }
   async function updateExperimentStatus(id: string, status: string) {
-    fetch('http://localhost:3001' + '/researchers/changeExperimentStatus', {
+    fetch(`${process.env.URL_HOST}/researchers/changeExperimentStatus`, {
       body: JSON.stringify({ id, status }),
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -92,12 +93,12 @@ export default function HomePage() {
     anchor.target = '_blank';
     anchor.download = `${id}.json`;
     anchor.click();
-
+    includedData;
     URL.revokeObjectURL(blobUrl);
   }
 
   async function deleteExperiment(id: string) {
-    fetch('http://localhost:3001' + '/researchers/deleteExperiment', {
+    fetch(`${process.env.URL_HOST}/researchers/deleteExperiment`, {
       body: JSON.stringify({ id }),
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -125,6 +126,7 @@ export default function HomePage() {
 
   return (
     <>
+      <Header activeLink="/login" loggedIn />
       {isDeleted && (
         <Container
           style={{

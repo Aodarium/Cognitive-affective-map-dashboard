@@ -7,7 +7,7 @@ import { Header } from '@/components/HeaderTab/Header';
 export default function HomePage() {
   async function submitForm(data: any) {
     const body = { email: data.email, password: data.password };
-    const url = 'http://localhost:3001' + '/researchers/login';
+    const url = `${process.env.URL_HOST}/researchers/login`;
     setIsLoading(true);
 
     fetch(url, {
@@ -16,17 +16,18 @@ export default function HomePage() {
       method: 'POST',
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then((responseData) => {
         setIsLoading(false);
-        setCookies('CAM-API-KEY', data.token);
+        setCookies('CAM-API-KEY', responseData.token);
         router.push('/experiments');
       })
-      .catch((err) => {
+      .catch(() => {
         setIsLoading(false);
         setIsError(true);
       });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [cookies, setCookies] = useCookies(['CAM-API-KEY']);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
