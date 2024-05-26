@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useCookies } from 'react-cookie';
+import getConfig from 'next/config';
 import { AuthenticationTitle } from '@/components/LoginWindow/Authentication';
 import { Header } from '@/components/HeaderTab/Header';
 
+const { publicRuntimeConfig } = getConfig();
+
 export default function HomePage() {
   async function submitForm(data: any) {
+    const linkApi = publicRuntimeConfig.URL_HOST;
     const body = { email: data.email, password: data.password };
-    const url = `${process.env.URL_HOST}/researchers/login`;
+    const url = `${linkApi}/researchers/login`;
     setIsLoading(true);
 
     fetch(url, {

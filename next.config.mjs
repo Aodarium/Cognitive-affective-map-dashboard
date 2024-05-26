@@ -9,5 +9,10 @@ export default withBundleAnalyzer({
   eslint: {
     ignoreDuringBuilds: true,
   },
-  output: 'export'
+  output: 'export',
+  publicRuntimeConfig: {
+    DEV_URL: process.env.DEV_URL,
+    PROD_URL: process.env.PROD_URL,
+    URL_HOST: process.env.URL_HOST
+  }
 });

@@ -38,9 +38,9 @@ export function Welcome() {
 
       <Space h="xl" />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <BadgeCard />
-      <BadgeCard />
-      <BadgeCard />
+      <BadgeCard link="https://iaap-journals.onlinelibrary.wiley.com/doi/full/10.1111/aphw.12283" authors="Lisa Reuter, Julius Fenn, Tobias Andreas Bilo, Melanie Schulz, Annemarie Lina Weyland, Andrea Kiesel, Roland Thomaschke" text="Leisure walks modulate the cognitive and affective representation of the corona pandemic: Employing Cognitive-Affective Maps within a randomized experimental design" />
+      <BadgeCard text="Who’s gonna use this? Acceptance prediction of emerging technologies with Cognitive-Affective Mapping and transdisciplinary considerations in the Anthropocene" link="https://journals.sagepub.com/doi/10.1177/20530196221078924" authors="Sabrina Livanec, Michael Stumpf, Lisa Reuter, Julius Fenn, and Andrea Kiesel" />
+      <BadgeCard link="https://doi.org/10.1371/journal.pclm.0000207" authors="Julius Fenn, Jessica F. Helm, Philipp Höfele, Lars Kulbe, Andreas Ernst, and Andrea Kiesel" text="Identifying key-psychological factors influencing the acceptance of yet emerging technologies–A multi-method-approach to inform climate policy" />
       </div>
     </>
   );

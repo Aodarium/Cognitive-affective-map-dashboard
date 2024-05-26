@@ -8,11 +8,13 @@ const links = {
     { link: '/', label: 'Home' },
     { link: '/experiments', label: 'Experiments' },
     { link: '/documentation', label: 'Documentation' },
+    { link: '/board', label: 'Board' },
     { link: '/logout', label: 'Log out' },
   ],
   notLogged: [
     { link: '/', label: 'Home' },
     { link: '/documentation', label: 'Documentation' },
+    { link: '/board', label: 'Board' },
     { link: '/login', label: 'Log in' },
   ],
 };
