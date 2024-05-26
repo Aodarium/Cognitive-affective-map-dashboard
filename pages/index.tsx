@@ -1,5 +1,5 @@
 import { Welcome } from '../components/Welcome/Welcome';
-import { Header } from '../components/Header/Header';
+import { Header } from '../components/HeaderTab/Header';
 import { useRouter } from 'next/router';
 
 export default function HomePage() {

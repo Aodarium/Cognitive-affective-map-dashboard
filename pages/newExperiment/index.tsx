@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { Blockquote, Container } from '@mantine/core';
 import { useState } from 'react';
 import { NewExpForm } from '@/components/NewExpForm/NewExpForm';
-import { Header } from '@/components/Header/Header';
+import { Header } from '@/components/HeaderTab/Header';
 
 function validateConfiguration(file: string) {
   return true;
