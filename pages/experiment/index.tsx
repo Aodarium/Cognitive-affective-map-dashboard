@@ -58,7 +58,7 @@ export default function HomePage() {
         setExperimentContent(data);
         setIsDataReady(true);
       })
-      .catch((err) => {
+      .catch(() => {
         setIsLoading(false);
         setIsError(true);
       });
@@ -66,7 +66,6 @@ export default function HomePage() {
 
   function getIncludedData(includedData: Set<string>) {
     setIncludedData(includedData);
-    console.log(includedData);
   }
   async function updateExperimentStatus(id: string, status: string) {
     fetch('http://localhost:3001' + '/researchers/changeExperimentStatus', {
@@ -76,10 +75,10 @@ export default function HomePage() {
       method: 'PUT',
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         setIsLoading(false);
       })
-      .catch((err) => {
+      .catch(() => {
         setIsLoading(false);
         setIsError(true);
       });
@@ -109,7 +108,7 @@ export default function HomePage() {
         setIsDeleted(true);
         return res.json();
       })
-      .catch((err) => {
+      .catch(() => {
         setIsLoading(false);
         setIsError(true);
       });
