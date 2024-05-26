@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useCookies } from 'react-cookie';
 import { useSearchParams } from 'next/navigation';
 import {
   Badge,
@@ -21,7 +20,6 @@ import { getStatusColor } from '@/utils/generals';
 import { Experiment } from '@/utils/types';
 
 export default function HomePage() {
-  const [cookies, setCookies] = useCookies(['CAM-API-KEY']);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [experimentContent, setExperimentContent] = useState({} as Experiment);
