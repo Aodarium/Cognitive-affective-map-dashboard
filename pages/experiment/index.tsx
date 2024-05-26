@@ -14,7 +14,7 @@ import {
 import Router from 'next/router';
 import { IconCheck } from '@tabler/icons-react';
 import { StatsGridIcons } from '@/components/StatExperiment/StatExperiment';
-import { HeaderSimple } from '@/components/Header/Header';
+import { Header } from '@/components/Header/Header';
 import { TableParticipants } from '@/components/ParticipantList/ParticipantList';
 import StatusModal from '@/components/StatusModal/StatusModal';
 import { getStatusColor } from '@/utils/generals';
@@ -129,7 +129,7 @@ export default function HomePage() {
 
   return (
     <>
-      <HeaderSimple activeLink="/login" loggedIn />
+      <Header activeLink="/login" loggedIn />
       {isDeleted && (
         <Container
           style={{

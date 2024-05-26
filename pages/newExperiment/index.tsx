@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { Blockquote, Container } from '@mantine/core';
 import { useState } from 'react';
 import { NewExpForm } from '@/components/NewExpForm/NewExpForm';
-import { HeaderSimple } from '@/components/Header/Header';
+import { Header } from '@/components/Header/Header';
 
 function validateConfiguration(file: string) {
   return true;
@@ -54,7 +54,7 @@ export default function HomePage() {
   }
   return (
     <>
-      <HeaderSimple activeLink="/experiments" loggedIn />
+      <Header activeLink="/experiments" loggedIn />
       <NewExpForm submitFormEvent={submitForm} />
       {isError && (
         <Container size={420}>

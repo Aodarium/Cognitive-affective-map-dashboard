@@ -17,7 +17,7 @@ const links = {
   ],
 };
 
-export function HeaderSimple({ activeLink, loggedIn }: any) {
+export function Header({ activeLink, loggedIn }: any) {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(activeLink);
 

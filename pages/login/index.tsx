@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useCookies } from 'react-cookie';
 import { AuthenticationTitle } from '@/components/LoginWindow/Authentication';
-import { HeaderSimple } from '@/components/Header/Header';
+import { Header } from '@/components/Header/Header';
 
 export default function HomePage() {
   async function submitForm(data: any) {
@@ -34,7 +34,7 @@ export default function HomePage() {
 
   return (
     <>
-      <HeaderSimple activeLink="/login" loggedIn="false" />
+      <Header activeLink="/login" loggedIn="false" />
       <AuthenticationTitle submitFormEvent={submitForm} isLoading={isLoading} isError={isError} />
     </>
   );

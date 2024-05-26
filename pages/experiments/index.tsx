@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Blockquote, Button, Container, Loader, Space } from '@mantine/core';
 import router from 'next/router';
 import { TableReviews } from '@/components/ExperimentList/ExperimentList';
-import { HeaderSimple } from '@/components/Header/Header';
+import { Header } from '@/components/Header/Header';
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +28,7 @@ export default function HomePage() {
 
   return (
     <>
-      <HeaderSimple activeLink="/experiments" loggedIn />
+      <Header activeLink="/experiments" loggedIn />
       {data && (
         <>
           <TableReviews data={data} />
