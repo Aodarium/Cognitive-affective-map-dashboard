@@ -13,11 +13,11 @@ import {
 import Router from 'next/router';
 import { IconCheck } from '@tabler/icons-react';
 import { StatsGridIcons } from '@/components/StatExperiment/StatExperiment';
-import { Header } from '@/components/Header/Header';
 import { TableParticipants } from '@/components/ParticipantList/ParticipantList';
 import StatusModal from '@/components/StatusModal/StatusModal';
 import { getStatusColor } from '@/utils/generals';
 import { Experiment } from '@/utils/types';
+import { Header } from '@/components/Header/Header';
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
