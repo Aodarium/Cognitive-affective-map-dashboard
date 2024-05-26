@@ -17,7 +17,6 @@ import { TableParticipants } from '@/components/ParticipantList/ParticipantList'
 import StatusModal from '@/components/StatusModal/StatusModal';
 import { getStatusColor } from '@/utils/generals';
 import { Experiment } from '@/utils/types';
-import { Header } from '@/components/Header/Header';
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -126,7 +125,6 @@ export default function HomePage() {
 
   return (
     <>
-      <Header activeLink="/login" loggedIn />
       {isDeleted && (
         <Container
           style={{
